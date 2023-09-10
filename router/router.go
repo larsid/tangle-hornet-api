@@ -5,7 +5,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func HandleRequests() (router *mux.Router) {
+func Routes() (router *mux.Router) {
 	router = mux.NewRouter().StrictSlash(true)
 
 	// Root

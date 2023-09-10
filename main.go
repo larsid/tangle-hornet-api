@@ -13,7 +13,7 @@ const PORT = 3000
 func main() {
 	fmt.Printf("Starting server on port %d", PORT)
 
-	router := router.HandleRequests()
+	router := router.Routes()
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", PORT), router))
 }
