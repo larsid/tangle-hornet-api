@@ -14,6 +14,7 @@ type Message struct {
 	Content string `json:"content"`
 }
 
+// Get all messages using a specific index.
 func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 	vars := mux.Vars(request)
 	index := vars["index"]
@@ -21,6 +22,7 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 	fmt.Fprintf(writer, "Retornando todas as mensagens do índice: "+index)
 }
 
+// Create and submit a new message.
 func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 	var message Message
 	

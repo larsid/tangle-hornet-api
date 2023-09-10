@@ -5,6 +5,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Defines and handles the API routes
 func Routes() (router *mux.Router) {
 	router = mux.NewRouter().StrictSlash(true)
 
