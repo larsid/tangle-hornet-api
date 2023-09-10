@@ -19,6 +19,7 @@ func handleRequests() {
 	router.HandleFunc("/", endpoints.Root)
 
 	// Messages
+	router.HandleFunc("/message", endpoints.CreateNewMessage).Methods("POST")
 	router.HandleFunc("/message/{index}", endpoints.GetAllMessagesByIndex)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", PORT), router))
