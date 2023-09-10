@@ -21,7 +21,7 @@ func handleRequests() {
 }
 
 func main() {
-	fmt.Printf("Starting server on %d port!", PORT)
+	fmt.Printf("Starting server on port %d", PORT)
 
 	handleRequests()
 }
