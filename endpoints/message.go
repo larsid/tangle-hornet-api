@@ -30,7 +30,7 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 		jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
 	}
 
-	jsonInString = string(jsonInBytes)
+	jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
 
 	fmt.Fprint(writer, jsonInString)
 }
