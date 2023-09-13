@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/allancapistrano/tangle-client-go/messages"
 	"github.com/gorilla/mux"
 )
 
@@ -16,10 +17,22 @@ type Message struct {
 
 // Get all messages using a specific index.
 func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
+	nodeURL := "http://127.0.0.1:14265"
+	
 	vars := mux.Vars(request)
 	index := vars["index"]
 
-	fmt.Fprintf(writer, "Retornando todas as mensagens do índice: "+index)
+	messagesByIndex := messages.GetAllMessagesByIndex(nodeURL, index)
+
+	var jsonInString string
+	jsonInBytes, err := json.Marshal(messagesByIndex)
+	if err != nil {
+		jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
+	}
+
+	jsonInString = string(jsonInBytes)
+
+	fmt.Fprint(writer, jsonInString)
 }
 
 // Create and submit a new message.
