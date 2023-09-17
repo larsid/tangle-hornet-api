@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 
 	"github.com/allancapistrano/tangle-client-go/messages"
@@ -17,20 +18,25 @@ type Message struct {
 
 // Get all messages using a specific index.
 func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
+	var jsonInString string
 	nodeURL := "http://127.0.0.1:14265"
-	
+
 	vars := mux.Vars(request)
 	index := vars["index"]
 
-	messagesByIndex := messages.GetAllMessagesByIndex(nodeURL, index)
+	messagesByIndex, err := messages.GetAllMessagesByIndex(nodeURL, index)
 
-	var jsonInString string
-	jsonInBytes, err := json.Marshal(messagesByIndex)
 	if err != nil {
-		jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
+		jsonInString = fmt.Sprintf("{\"error\": \"%s\"}", err.Error())
+	} else {
+		jsonInBytes, err := json.Marshal(messagesByIndex)
+		
+		if err != nil {
+			jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
+		} else {
+			jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
+		}
 	}
-
-	jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
 
 	fmt.Fprint(writer, jsonInString)
 }
@@ -38,9 +44,17 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 // Create and submit a new message.
 func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 	var message Message
-	
+	nodeURL := "http://127.0.0.1:14265"
+
 	requestBody, _ := io.ReadAll(request.Body)
 
 	json.Unmarshal(requestBody, &message)
-	json.NewEncoder(writer).Encode(message)
+
+	isMessageCreated := messages.SubmitMessage(nodeURL, message.Index, message.Content, 15)
+
+	if isMessageCreated {
+		json.NewEncoder(writer).Encode(message)
+	} else {
+		log.Panic("Error during create a new message.")
+	}
 }
