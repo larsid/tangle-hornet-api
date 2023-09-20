@@ -8,13 +8,14 @@ import (
 	"strings"
 )
 
+const CONFIG_DIRECTORY = "/etc/"
+
 // Get the port on which the API will run.
 func GetApiPort(fileName string, debug bool) string {
 	apiPort := "3000"
 	foundSettingsFile := true
-	directory := "/etc/"
 
-	filePath := filepath.Join(directory, fileName)
+	filePath := filepath.Join(CONFIG_DIRECTORY, fileName)
 	file, err := os.Open(filePath)
 	if err != nil {
 		if debug {
@@ -52,9 +53,8 @@ func GetApiPort(fileName string, debug bool) string {
 func GetNodeUrl(fileName string, debug bool) string {
 	nodeUrl := "127.0.0.1"
 	foundSettingsFile := true
-	directory := "/etc/"
 
-	filePath := filepath.Join(directory, fileName)
+	filePath := filepath.Join(CONFIG_DIRECTORY, fileName)
 	file, err := os.Open(filePath)
 	if err != nil {
 		if debug {
@@ -78,7 +78,7 @@ func GetNodeUrl(fileName string, debug bool) string {
 				continue
 			}
 
-			// Found API port setting.
+			// Found node URL setting.
 			if strings.Contains(scanner.Text(), "nodeUrl") {
 				nodeUrl = strings.Split(scanner.Text(), " = ")[1]
 			}
