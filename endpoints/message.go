@@ -31,11 +31,13 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 
 	if err != nil {
 		jsonInString = fmt.Sprintf("{\"error\": \"%s\"}", err.Error())
+		http.Error(writer, jsonInString, http.StatusInternalServerError)
 	} else {
 		jsonInBytes, err := json.Marshal(messagesByIndex)
 
 		if err != nil {
 			jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
+			http.Error(writer, jsonInString, http.StatusInternalServerError)
 		} else {
 			jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
 		}
@@ -58,7 +60,11 @@ func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 	// Serializar o objeto para formato JSON
 	jsonContent, err := json.Marshal(message.Content)
 	if err != nil {
-		log.Panic("Error serializing the object: ", err)
+		errorMessage := fmt.Sprintf("Error serializing the object: %s", err.Error())
+		jsonInString := fmt.Sprintf("{\"error\": \"%s\"}", errorMessage)
+
+		log.Println(errorMessage)
+		http.Error(writer, jsonInString, http.StatusInternalServerError)
 	} else {
 		// Converter o JSON em uma string
 		contentString := string(jsonContent)
@@ -68,7 +74,11 @@ func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 		if isMessageCreated {
 			json.NewEncoder(writer).Encode(message)
 		} else {
-			log.Panic("Error during create a new message.")
+			errorMessage := "Error during create a new message."
+			jsonInString := fmt.Sprintf("{\"error\": \"%s\"}", errorMessage)
+
+			log.Println(errorMessage)
+			http.Error(writer, jsonInString, http.StatusInternalServerError)
 		}
 	}
 }

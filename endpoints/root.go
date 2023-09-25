@@ -23,11 +23,13 @@ func Root(writer http.ResponseWriter, request *http.Request) {
 
 	if err != nil {
 		jsonInString = fmt.Sprintf("{\"error\": \"%s\"}", err.Error())
+		http.Error(writer, jsonInString, http.StatusInternalServerError)
 	} else {
 		json, err := json.Marshal(nodeInfo)
 
 		if err != nil {
 			jsonInString = fmt.Sprintf("{\"error\": \"%s\"}", err.Error())
+			http.Error(writer, jsonInString, http.StatusInternalServerError)
 		} else {
 			jsonInString = string(json)
 		}
