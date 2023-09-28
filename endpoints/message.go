@@ -46,6 +46,34 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 	fmt.Fprint(writer, jsonInString)
 }
 
+// Get a message by given message ID.
+func GetMessageByMessageId(writer http.ResponseWriter, request *http.Request) {
+	var jsonInString string
+	nodeURL := config.GetNodeUrl(CONFIG_FILE_NAME, true)
+	nodePort := config.GetNodePort(CONFIG_FILE_NAME, true)
+	nodeAddress := fmt.Sprintf("http://%s:%s", nodeURL, nodePort)
+
+	vars := mux.Vars(request)
+	messageId := vars["messageID"]
+
+	message, err := messages.GetMessageFormattedByMessageID(nodeAddress, messageId)
+	if err != nil {
+		jsonInString = fmt.Sprintf("{\"error\": \"%s\"}", err.Error())
+		http.Error(writer, jsonInString, http.StatusInternalServerError)
+	} else {
+		jsonInBytes, err := json.Marshal(message)
+
+		if err != nil {
+			jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
+			http.Error(writer, jsonInString, http.StatusInternalServerError)
+		} else {
+			jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
+		}
+	}
+
+	fmt.Fprint(writer, jsonInString)
+}
+
 // Create and submit a new message.
 func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 	var message Message
