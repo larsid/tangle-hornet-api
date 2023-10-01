@@ -39,7 +39,7 @@ func GetAllMessagesByIndex(writer http.ResponseWriter, request *http.Request) {
 			jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
 			http.Error(writer, jsonInString, http.StatusInternalServerError)
 		} else {
-			jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
+			jsonInString = string(jsonInBytes)
 		}
 	}
 
@@ -67,7 +67,7 @@ func GetMessageByMessageId(writer http.ResponseWriter, request *http.Request) {
 			jsonInString = "{\"error\": \"Unable to convert the messages struct into JSON format.\"}"
 			http.Error(writer, jsonInString, http.StatusInternalServerError)
 		} else {
-			jsonInString = string(jsonInBytes) // TODO: Corrigir espaços em branco
+			jsonInString = string(jsonInBytes)
 		}
 	}
 
