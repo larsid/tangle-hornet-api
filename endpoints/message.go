@@ -13,8 +13,8 @@ import (
 )
 
 type Message struct {
-	Index   string      `json:"index"`
-	Content interface{} `json:"content"`
+	Index string      `json:"index"`
+	Data  interface{} `json:"data"`
 }
 
 // Get all messages using a specific index.
@@ -86,7 +86,7 @@ func CreateNewMessage(writer http.ResponseWriter, request *http.Request) {
 	json.Unmarshal(requestBody, &message)
 
 	// Serializar o objeto para formato JSON
-	jsonContent, err := json.Marshal(message.Content)
+	jsonContent, err := json.Marshal(message.Data)
 	if err != nil {
 		errorMessage := fmt.Sprintf("Error serializing the object: %s", err.Error())
 		jsonInString := fmt.Sprintf("{\"error\": \"%s\"}", errorMessage)
