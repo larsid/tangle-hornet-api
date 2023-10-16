@@ -12,7 +12,7 @@ import (
 const CONFIG_FILE_NAME = "tangle-hornet.conf"
 
 // Shows information about Tangle Hornet Network
-func NodeInfo(writer http.ResponseWriter, request *http.Request) {
+func GetNodeInfo(writer http.ResponseWriter, request *http.Request) {
 	var jsonInString string
 	nodeURL := config.GetNodeUrl(CONFIG_FILE_NAME, true)
 	nodePort := config.GetNodePort(CONFIG_FILE_NAME, true)
