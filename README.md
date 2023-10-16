@@ -38,7 +38,8 @@ We recommend you update Go [to the latest stable version to use the library](htt
 
 | Method | Enpoint | Description |
 | ------ | ------- | ----------- | 
-| GET | `/` | Shows information about Tangle Hornet Network. | 
+| GET | `/nodeInfo` | Shows information about Tangle Hornet Network. | 
+| GET | `/nodeInfo/all` | Shows all information about Tangle Hornet Network. | 
 | GET | `/message/messageId/{messageId}` | Get a message by given message ID. |
 | GET | `/message/{index}` | Get all messages using a specific index. |
 | POST | `/message` | Create and submit a new message. |
