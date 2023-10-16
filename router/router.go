@@ -9,8 +9,9 @@ import (
 func Routes() (router *mux.Router) {
 	router = mux.NewRouter().StrictSlash(true)
 
-	// Root
-	router.HandleFunc("/", endpoints.Root)
+	// Node Info
+	router.HandleFunc("/nodeInfo", endpoints.GetNodeInfo)
+	router.HandleFunc("/nodeInfo/all", endpoints.GetAllNodeInfo)
 
 	// Messages
 	router.HandleFunc("/message", endpoints.CreateNewMessage).Methods("POST")
