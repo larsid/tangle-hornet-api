@@ -22,7 +22,7 @@ We recommend you update Go [to the latest stable version to use the library](htt
    ./tangle-hornet-api
    ```
    
-### Build the API by you own
+### Build the project on your own
 
 1. Clone this repository;
 2. Download all the dependencies:
