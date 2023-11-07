@@ -1,4 +1,4 @@
-# tangle-hornet-api
+# Tangle Hornet API
 API written in Go to use Tangle Hornet Network.
 
 ## How to use
