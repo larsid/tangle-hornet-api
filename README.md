@@ -10,7 +10,7 @@ We recommend you update Go [to the latest stable version to use the library](htt
 
 ### Downloading the API
 
-1. You can get the latest version of the API by [clicking here](https://github.com/AllanCapistrano/tangle-hornet-api/releases/download/v1.3.1/tangle-hornet-api);
+1. You can get the latest version of the API by [clicking here](https://github.com/AllanCapistrano/tangle-hornet-api/releases/download/v1.5.0/tangle-hornet-api);
 2. Give the permission to execute the API:
    ```powershell
    sudo chmod +x tangle-hornet-api
