@@ -42,7 +42,10 @@ We recommend you update Go [to the latest stable version to use the library](htt
 | GET | `/nodeInfo/all` | Shows all information about Tangle Hornet Network. | 
 | GET | `/message/messageId/{messageId}` | Get a message by given message ID. |
 | GET | `/message/{index}` | Get all messages using a specific index. |
+| GET | `/message/{index}/{maxMessages}` | Get a maximum number of messages from the last hour, using a specific index. |
 | POST | `/message` | Create and submit a new message. |
+
+You also can use the files in the [`apiClientFiles`](./apiClientFiles/) directory to import all routes into your API Client.
 
 ### POST Body Examples
 

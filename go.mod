@@ -3,7 +3,7 @@ module github.com/allancapistrano/tangle-hornet-api
 go 1.20
 
 require (
-	github.com/allancapistrano/tangle-client-go v1.4.0
+	github.com/allancapistrano/tangle-client-go v1.5.0
 	github.com/gorilla/mux v1.8.0
 )
 
