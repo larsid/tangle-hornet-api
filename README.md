@@ -45,6 +45,8 @@ We recommend you update Go [to the latest stable version to use the library](htt
 | GET | `/message/{index}/{maxMessages}` | Get a maximum number of messages from the last hour, using a specific index. |
 | POST | `/message` | Create and submit a new message. |
 
+You also can use the files in the [`apiClientFiles`](./apiClientFiles/) directory to import all routes into your API Client.
+
 ### POST Body Examples
 
 #### Routes
