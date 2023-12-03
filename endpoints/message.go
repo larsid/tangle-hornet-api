@@ -61,7 +61,7 @@ func GetLastHourMessagesByIndex(writer http.ResponseWriter, request *http.Reques
 
 	maxMessages, err := strconv.Atoi(maxMessagesInString)
 	if err != nil {
-		jsonInString = "{\"error\": \"Invalid max number of messages.\"}"
+		jsonInString = "{\"error\": \"Invalid maximum number of messages.\"}"
 		http.Error(writer, jsonInString, http.StatusBadRequest)
 	}
 
