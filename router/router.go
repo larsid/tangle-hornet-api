@@ -16,6 +16,10 @@ func Routes() (router *mux.Router) {
 	// Messages
 	router.HandleFunc("/message", endpoints.CreateNewMessage).Methods("POST")
 	router.HandleFunc("/message/{index}", endpoints.GetAllMessagesByIndex)
+	router.HandleFunc(
+		"/message/{index}/{maxMessages:[0-9]+}",
+		endpoints.GetLastHourMessagesByIndex,
+	)
 	router.HandleFunc("/message/messageId/{messageID}", endpoints.GetMessageByMessageId)
 
 	return router
