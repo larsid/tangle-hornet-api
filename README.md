@@ -1,4 +1,4 @@
-# tangle-hornet-api
+# Tangle Hornet API
 API written in Go to use Tangle Hornet Network.
 
 ## How to use
@@ -22,7 +22,7 @@ We recommend you update Go [to the latest stable version to use the library](htt
    ./tangle-hornet-api
    ```
    
-### Build the API by you own
+### Build the project on your own
 
 1. Clone this repository;
 2. Download all the dependencies:
@@ -38,7 +38,8 @@ We recommend you update Go [to the latest stable version to use the library](htt
 
 | Method | Enpoint | Description |
 | ------ | ------- | ----------- | 
-| GET | `/` | Shows information about Tangle Hornet Network. | 
+| GET | `/nodeInfo` | Shows information about Tangle Hornet Network. | 
+| GET | `/nodeInfo/all` | Shows all information about Tangle Hornet Network. | 
 | GET | `/message/messageId/{messageId}` | Get a message by given message ID. |
 | GET | `/message/{index}` | Get all messages using a specific index. |
 | GET | `/message/{index}/{maxMessages}` | Get a maximum number of messages from the last hour, using a specific index. |
