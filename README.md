@@ -10,13 +10,13 @@ We recommend you update Go [to the latest stable version to use the library](htt
 
 ### Downloading the API
 
-1. You can get the latest version of the API by [clicking here](https://github.com/AllanCapistrano/tangle-hornet-api/releases/download/v1.5.0/tangle-hornet-api);
+1. You can get the latest version of the API by [clicking here](https://github.com/larsid/tangle-hornet-api/releases/download/v1.0.0/tangle-hornet-api);
 2. Give the permission to execute the API:
    ```powershell
    sudo chmod +x tangle-hornet-api
    ```
 3. If you want to change some parameters, create a file named `tangle-hornet.conf` in the `/etc/` directory;
-   1. Check the [tangle-hornet.conf](https://github.com/AllanCapistrano/tangle-hornet-api/blob/main/config/tangle-hornet.conf) to see all the parameters you can override.
+   1. Check the [tangle-hornet.conf](./config/tangle-hornet.conf) to see all the parameters you can override.
 4. Run the API:
    ```powershell
    ./tangle-hornet-api
