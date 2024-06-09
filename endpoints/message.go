@@ -9,7 +9,7 @@ import (
 	"strconv"
 
 	"github.com/larsid/tangle-client-go/messages"
-	"github.com/allancapistrano/tangle-hornet-api/config"
+	"github.com/larsid/tangle-hornet-api/config"
 	"github.com/gorilla/mux"
 )
 

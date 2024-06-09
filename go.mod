@@ -1,4 +1,4 @@
-module github.com/allancapistrano/tangle-hornet-api
+module github.com/larsid/tangle-hornet-api
 
 go 1.20
 

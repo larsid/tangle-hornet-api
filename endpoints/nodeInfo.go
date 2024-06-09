@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/larsid/tangle-client-go/info"
-	"github.com/allancapistrano/tangle-hornet-api/config"
+	"github.com/larsid/tangle-hornet-api/config"
 )
 
 const CONFIG_FILE_NAME = "tangle-hornet.conf"

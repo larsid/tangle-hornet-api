@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/allancapistrano/tangle-hornet-api/config"
-	"github.com/allancapistrano/tangle-hornet-api/router"
+	"github.com/larsid/tangle-hornet-api/config"
+	"github.com/larsid/tangle-hornet-api/router"
 )
 
 const CONFIG_FILE_NAME = "tangle-hornet.conf"

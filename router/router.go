@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/allancapistrano/tangle-hornet-api/endpoints"
+	"github.com/larsid/tangle-hornet-api/endpoints"
 	"github.com/gorilla/mux"
 )
 
