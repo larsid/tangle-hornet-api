@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/allancapistrano/tangle-client-go/info"
+	"github.com/larsid/tangle-client-go/info"
 	"github.com/allancapistrano/tangle-hornet-api/config"
 )
 

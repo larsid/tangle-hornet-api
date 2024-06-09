@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/allancapistrano/tangle-client-go/messages"
+	"github.com/larsid/tangle-client-go/messages"
 	"github.com/allancapistrano/tangle-hornet-api/config"
 	"github.com/gorilla/mux"
 )
