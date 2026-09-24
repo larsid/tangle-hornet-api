@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/larsid/tangle-client-go v1.0.0
+	github.com/larsid/tangle-client-go v1.0.1
 )
 
 require (
